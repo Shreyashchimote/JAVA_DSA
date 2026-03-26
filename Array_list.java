@@ -26,5 +26,11 @@ public class Array_list{
         for(int i=list.size()-1;i>=0;i--){
             System.out.print(list.get(i)+" ");
         }
+        System.out.println("");
+        int max=Integer.MIN_VALUE;
+        for(int i=0;i<list.size();i++){
+            max=Math.max(max, list.get(i));
+        }
+        System.out.println("Maximum number in list is: "+max);
     }
 }
