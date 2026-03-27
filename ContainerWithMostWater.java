@@ -11,7 +11,10 @@ public class ContainerWithMostWater{
         height.add(8);
         height.add(3);
         height.add(7);
-        int maxArea=Integer.MIN_VALUE;
+        System.out.print(Mostwater(height));
+    }
+    public static int Mostwater(ArrayList<Integer> height) {
+        int maxArea=0;
         for(int i=0;i<height.size();i++){
             for(int j=i+1; j<height.size();j++){
                 int width = j - i;
@@ -20,6 +23,6 @@ public class ContainerWithMostWater{
                 maxArea=Math.max(maxArea, area);
             }
         }
-        System.out.println(maxArea);
+        return(maxArea);
     }
 }
