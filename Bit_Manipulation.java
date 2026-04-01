@@ -54,6 +54,17 @@ public class Bit_Manipulation{
         }
         return count;
     }
+    public static int fastexpo(int a, int n){
+        int ans=1;
+        while(n>0){
+            if((n&1)!=0){
+                ans=ans*(a);
+            }
+            a=a*a;
+            n=n>>1;
+        }
+        return ans;
+    }
     public static void main(String[] args) {
         // System.out.println(5&6);
         // System.out.println(5|6);
@@ -73,6 +84,7 @@ public class Bit_Manipulation{
         // System.out.println(clrrangebits(10, 2, 4));
         // System.out.println(ispowerof2(6));
         System.out.println(numofsetbit(15));
+        System.out.println(fastexpo(5, 5));
 
     }
 }
