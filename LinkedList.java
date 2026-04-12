@@ -59,6 +59,52 @@ public class LinkedList {
         newNode.next=temp.next;
         temp.next=newNode;
     }
+    public int removeFirst(){
+        if(size==0){
+            System.out.println("THe linked list is Empty");
+            return Integer.MIN_VALUE;
+        }if(size==1){
+            int val=head.data;
+            head=tail=null;
+            size=0;
+            return val;
+        }
+        int val=head.data;
+        head=head.next;
+        size--;
+        return val;
+    }
+    public int removelast(){
+        if(size==0){
+            System.out.println("LL is empty");
+            return Integer.MIN_VALUE;
+        }if(size==1){
+            int val=head.data;
+            head=tail=null;
+            size=0;
+            return val;
+        }Node prev=head;
+        for(int i=0;i<size-2;i++){
+            prev=prev.next;
+        }
+        int val=prev.next.data;
+        prev.next=null;
+        tail=prev;
+        size--;
+        return val;
+    }
+    public int searchKey(int target){
+        Node temp=head;
+        int count=0;
+        while(temp.next!=null){
+            if(temp.data==target){
+                return count;
+            }
+            temp=temp.next;
+            count++;
+        }
+        return -1;
+    }
 
     public static void main(String[] args) {
         LinkedList ll= new LinkedList();
@@ -73,7 +119,13 @@ public class LinkedList {
 
         ll.add(2, 9);
         ll.printList();
+        ll.removeFirst();
+        ll.printList();
+        ll.removelast();
+        ll.printList();
         System.out.println("Size of LinkedList is:"+ll.size);
+        System.out.println("target is at: "+ll.searchKey(9));
+        
     }
     
 }
