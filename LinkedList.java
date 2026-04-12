@@ -105,6 +105,23 @@ public class LinkedList {
         }
         return -1;
     }
+    public int helper(Node head, int key){
+        if(head==null){
+            return -1;
+        }
+        if(head.data==key){
+            return 0;
+        }
+        int idx=helper(head.next, key);
+        if(idx==-1){
+            return -1;
+        }
+        return idx+1;
+
+    }
+    public int recuSearch(int key){
+        return helper(head, key);
+    }
 
     public static void main(String[] args) {
         LinkedList ll= new LinkedList();
@@ -124,7 +141,8 @@ public class LinkedList {
         ll.removelast();
         ll.printList();
         System.out.println("Size of LinkedList is:"+ll.size);
-        System.out.println("target is at: "+ll.searchKey(9));
+        System.out.println("target is at: "+ll.searchKey(1));
+        System.out.println("target is at: "+ll.recuSearch(2));
         
     }
     
