@@ -176,6 +176,7 @@ public class LinkedList {
         while (curr!=null) { 
             next=curr.next;
             curr.next=prev;
+            prev = curr;
             curr=next;
         } 
         Node right=prev;
@@ -184,6 +185,8 @@ public class LinkedList {
             if(right.data!=left.data){
                 return false;
             }
+            left=left.next;
+            right=right.next;
         }
         return true;
     }
