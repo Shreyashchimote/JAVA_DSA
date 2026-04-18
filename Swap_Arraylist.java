@@ -21,7 +21,7 @@ public class Swap_Arraylist{
         System.out.println(list);
         Collections.sort(list);//Ascending order of list
         System.out.println(list);    
-        Collections.sort(list, Collections.reverseOrder());
+        Collections.sort(list, Collections.reverseOrder()); //Collections.reverseOrder() is a comparator, comparator are fxn in java which defines the logic of sorting
         System.out.println(list); // Descending order of list
     }
     

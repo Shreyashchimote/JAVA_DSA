@@ -96,7 +96,7 @@ public class LinkedList {
     public int searchKey(int target){
         Node temp=head;
         int count=0;
-        while(temp.next!=null){
+        while(temp!=null){
             if(temp.data==target){
                 return count;
             }
@@ -122,6 +122,71 @@ public class LinkedList {
     public int recuSearch(int key){
         return helper(head, key);
     }
+    public void reverselist(){
+        Node prev=null;
+        Node curr=head;
+        Node next;
+        while(curr!=null){
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }
+        head=prev;
+    }
+    public void removeElementFromLast(int n){
+        int sz=0;
+        Node temp=head;
+        while(temp!=null){
+            temp=temp.next;
+            sz++;
+        }
+        if(n==sz){
+            head=head.next;
+            return;
+        }
+        int i=1;
+        int ithnode=sz-n;
+        Node prev=head;
+        while(i<ithnode){
+            prev=prev.next;
+            i++;
+        }
+        prev.next=prev.next.next;
+        // return;
+    }
+    public Node findmid(Node head){
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        return slow;
+    }
+    public boolean  checkPalindrome(){
+        if(head==null || head.next==null){
+            return true;
+        }
+        Node mid=findmid(head);
+        //swap 2nd half
+        Node prev=null;
+        Node curr=mid;
+        Node next;
+        while (curr!=null) { 
+            next=curr.next;
+            curr.next=prev;
+            curr=next;
+        } 
+        Node right=prev;
+        Node left=head;
+        while(right!=null){
+            if(right.data!=left.data){
+                return false;
+            }
+        }
+        return true;
+    }
 
     public static void main(String[] args) {
         LinkedList ll= new LinkedList();
@@ -136,13 +201,20 @@ public class LinkedList {
 
         ll.add(2, 9);
         ll.printList();
-        ll.removeFirst();
+        // ll.removeFirst();
+        // ll.printList();
+        // ll.removelast();
+        // ll.printList();
+        // System.out.println("Size of LinkedList is:"+ll.size);
+        // System.out.println("target is at: "+ll.searchKey(1));
+        // System.out.println("target is at: "+ll.recuSearch(2));
+        // ll.reverselist();
+        // ll.printList();
+        ll.removeElementFromLast(3);
         ll.printList();
-        ll.removelast();
-        ll.printList();
-        System.out.println("Size of LinkedList is:"+ll.size);
-        System.out.println("target is at: "+ll.searchKey(1));
-        System.out.println("target is at: "+ll.recuSearch(2));
+        System.out.println(ll.findmid(head).data);
+        System.out.println(ll.checkPalindrome());
+        
         
     }
     
