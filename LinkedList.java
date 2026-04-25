@@ -194,28 +194,33 @@ public class LinkedList {
     public static void main(String[] args) {
         LinkedList ll= new LinkedList();
         
-        ll.addFirst(1);
+        // ll.addFirst(1);
         
-        ll.addFirst(0);
+        // ll.addFirst(0);
         
-        ll.addLast(2);
+        // ll.addLast(2);
         
-        ll.addLast(3);
+        // ll.addLast(3);
 
-        ll.add(2, 9);
+        // ll.add(2, 9);
+        // ll.printList();
+        // // ll.removeFirst();
+        // // ll.printList();
+        // // ll.removelast();
+        // // ll.printList();
+        // // System.out.println("Size of LinkedList is:"+ll.size);
+        // // System.out.println("target is at: "+ll.searchKey(1));
+        // // System.out.println("target is at: "+ll.recuSearch(2));
+        // // ll.reverselist();
+        // // ll.printList();
+        // ll.removeElementFromLast(3);
+        // ll.printList();
+        // System.out.println(ll.findmid(head).data);
+        ll.addLast(1);
+        ll.addLast(2);
+        ll.addLast(2);
+        ll.addLast(1);
         ll.printList();
-        // ll.removeFirst();
-        // ll.printList();
-        // ll.removelast();
-        // ll.printList();
-        // System.out.println("Size of LinkedList is:"+ll.size);
-        // System.out.println("target is at: "+ll.searchKey(1));
-        // System.out.println("target is at: "+ll.recuSearch(2));
-        // ll.reverselist();
-        // ll.printList();
-        ll.removeElementFromLast(3);
-        ll.printList();
-        System.out.println(ll.findmid(head).data);
         System.out.println(ll.checkPalindrome());
         
         
